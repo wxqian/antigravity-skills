@@ -26,6 +26,7 @@
 15. [Web Artifacts Builder (Web 应用构建)](#15-web-artifacts-builder-web-应用构建)
 16. [Webapp Testing (Web 应用测试)](#16-webapp-testing-web-应用测试)
 17. [XLSX (Excel 表格处理)](#17-xlsx-excel-表格处理)
+18. [UI/UX Pro Max (UI/UX 设计智能)](#18-ui-ux-pro-max-ui-ux-设计智能)
 
 ---
 
@@ -382,3 +383,26 @@
 > 2. 编写 Excel 公式链接各个单元格（而非硬编码数字）。
 > 3. 应用标准的财务模型格式和颜色编码。
 > 4. 使用重算脚本验证模型结果。
+
+---
+
+### 18. UI/UX Pro Max (UI/UX 设计智能)
+
+**调用方式**: `@[ui-ux-pro-max]` 或 `/ui-ux-pro-max`
+
+**简介**:
+一个强大的 UI/UX 设计智能数据库和搜索引擎，涵盖 50+ 种设计风格、21+ 种配色方案、字体搭配及不同技术栈（React, Vue, Tailwind 等）的最佳实践。
+
+**核心能力**:
+- **风格搜索**: 检索特定风格（如 Glassmorphism, Brutalism）的详细特征和实现参数。
+- **资产推荐**: 提供针对特定行业（如 Fintech, SaaS）的配色、字体和图表建议。
+- **技术栈指南**: 获取特定技术栈（如 HTML-Tailwind, React）的实现规范。
+
+**使用案例**:
+> **用户**: "我要为一款医疗 App 设计一个干净、专业的仪表盘。"
+>
+> **Skill 响应**:
+> 1. 搜索 "healthcare" 获取配色（通常为蓝/青色系）和字体推荐。
+> 2. 检索 "clean professional" 获取布局和风格建议。
+> 3. 提供 Tailwind CSS 的具体实现参数（如阴影、圆角）。
+
