@@ -1,5 +1,8 @@
 # Antigravity Skills 用户手册
-
+    
+文档版本: v2.0.1
+技能总数: 46 个
+    
 本文档详细介绍了当前工作区中所有可用的 Skill (技能)。这些 Skill 提供了从文档处理、艺术创作到全栈开发和测试的广泛能力。
 
 您可以通过 `@[skill-name]` 或 `/skill-name` 在对话中调用这些技能。
@@ -41,6 +44,19 @@
 31. [Writing Plans (编写计划)](#31-writing-plans-编写计划)
 32. [Writing Skills (编写技能)](#32-writing-skills-编写技能)
 33. [Planning with Files (文件任务规划)](#33-planning-with-files-文件任务规划)
+34. [BDI Mental States (BDI 认知模型)](#34-bdi-mental-states-bdi-认知模型)
+35. [Memory Systems (记忆系统)](#35-memory-systems-记忆系统)
+36. [Filesystem Context (文件系统上下文)](#36-filesystem-context-文件系统上下文)
+37. [Context Fundamentals (上下文基础)](#37-context-fundamentals-上下文基础)
+38. [Context Optimization (上下文优化)](#38-context-optimization-上下文优化)
+39. [Context Compression (上下文压缩)](#39-context-compression-上下文压缩)
+40. [Context Degradation (上下文退化)](#40-context-degradation-上下文退化)
+41. [Multi-Agent Patterns (多 Agent 模式)](#41-multi-agent-patterns-多-agent-模式)
+42. [Hosted Agents (托管 Agent)](#42-hosted-agents-托管-agent)
+43. [Tool Design (工具设计)](#43-tool-design-工具设计)
+44. [Project Development (项目开发)](#44-project-development-项目开发)
+45. [Evaluation (基础评估)](#45-evaluation-基础评估)
+46. [Advanced Evaluation (高级评估)](#46-advanced-evaluation-高级评估)
 
 ---
 
@@ -695,7 +711,283 @@ Meta-Skill。用于在对话开始时，帮助用户发现有哪些 Skill 可用
 > 1. 初始化 `task_plan.md`（定义调研、原型、迁移、测试四个阶段）。
 > 2. 初始化 `findings.md`（用于记录 Django 和 FastAPI 的 API 差异）。
 > 3. 初始化 `progress.md`（记录操作日志）。
-> 4. 在调研过程中，不断将发现写入 `findings.md`，而非仅仅在对话中回复。
+### 34. BDI Mental States (BDI 认知模型)
+
+**调用方式**: `@[bdi-mental-states]` 或 `/bdi-mental-states`
+
+**简介**:
+模拟 Agent 的信念(Belief)、愿望(Desire)和意图(Intention) BDI 模型。使 Agent 能够进行更接近人类的推理和决策，而不仅仅是简单的请求-响应。
+
+**核心能力**:
+- **信念建模**: 将信息转换为结构化的信念（RDF/图谱）。
+- **意图生成**: 基于愿望和信念生成具体的行动意图。
+- **动态调整**: 根据新信息实时更新心理状态。
+
+**使用案例**:
+> **用户**: "模拟一个理性买家在考虑购买电动车时的心理活动。"
+>
+> **Skill 响应**:
+> 1. 建立初始信念（"油价上涨", "环保很重要"）。
+> 2. 生成愿望（"降低出行成本", "减少碳排放"）。
+> 3. 形成意图（"研究 Model 3 和比亚迪汉"）。
+
+---
+
+### 35. Memory Systems (记忆系统)
+
+**调用方式**: `@[memory-systems]` 或 `/memory-systems`
+
+**简介**:
+为 Agent 构建持久化的长期记忆系统。超越对话上下文的限制，实现跨会话的信息存储和检索。
+
+**核心能力**:
+- **知识图谱**: 构建实体关系的图谱记忆。
+- **实体追踪**: 持续追踪项目中的关键实体（如用户偏好、项目状态）。
+- **跨会话持久化**: 将关键信息存入数据库或文件系统。
+
+**使用案例**:
+> **用户**: "记得我之前说过的项目偏好吗？"
+>
+> **Skill 响应**:
+> 检索记忆库，确认用户偏好（如"喜欢 React", "厌恶 Tailwind"），并应用于当前任务。
+
+---
+
+### 36. Filesystem Context (文件系统上下文)
+
+**调用方式**: `@[filesystem-context]` 或 `/filesystem-context`
+
+**简介**:
+利用文件系统作为扩展的上下文存储。适用于需要处理海量信息但受限于 Token 窗口的场景。
+
+**核心能力**:
+- **上下文卸载**: 将不常用的上下文信息自动写入文件。
+- **动态加载**: 需要时从文件中检索并加载到当前窗口。
+- **暂存区管理**: 维护 Agent 的"草稿纸"和"笔记本"。
+
+**使用案例**:
+> **用户**: "我们要分析这 50 个文档，但太长了放不下。"
+>
+> **Skill 响应**:
+> 建议使用文件系统摘要策略，逐个读取文档生成摘要存入 `summaries/` 目录，需要细节再按需读取。
+
+---
+
+### 37. Context Fundamentals (上下文基础)
+
+**调用方式**: `@[context-fundamentals]` 或 `/context-fundamentals`
+
+**简介**:
+理解和调试 LLM 上下文机制的基础工具。帮助用户理解"为什么模型忘记了"或"为什么模型不仅令"。
+
+**核心能力**:
+- **窗口分析**: 解释当前的上下文窗口利用率。
+- **注意力机制**: 可视化或解释模型可能的注意力分布。
+- **Prompt 调试**: 诊断 Prompt 结构是否导致了注意力分散。
+
+**使用案例**:
+> **用户**: "模型老是忽略我 Prompt 中间的指令，只看开头和结尾。"
+>
+> **Skill 响应**:
+> 1. 分析 Primmacy/Recency Effect（首因/近因效应）。
+> 2. 建议将关键指令移动到 Prompt 的末尾（Recency）。
+> 3. 使用 XML 标签强化指令边界。
+
+---
+
+### 38. Context Optimization (上下文优化)
+
+**调用方式**: `@[context-optimization]` 或 `/context-optimization`
+
+**简介**:
+专注于降低 Token 消耗和提高处理效率。
+
+**核心能力**:
+- **KV-Cache 优化**: 设计利用缓存友好的 Prompt 结构。
+- **分区策略**: 将长任务切分为多个独立的小上下文任务。
+- **预算管理**: 为长对话设定 Token 预算和清理策略。
+
+**使用案例**:
+> **用户**: "这个对话太长了，现在 API 调用成本很高，而且速度变慢。"
+>
+> **Skill 响应**:
+> 1. 检测重复的 System Prompt，建议使用 Context Caching (如果 API 支持)。
+> 2. 识别并移除历史对话中不再需要的冗余数据块（如过期的代码文件）。
+> 3. 开启滚动窗口策略，只保留最近 N 轮对话。
+
+---
+
+### 39. Context Compression (上下文压缩)
+
+**调用方式**: `@[context-compression]` 或 `/context-compression`
+
+**简介**:
+针对超长上下文的压缩技术，保留关键信息的同时大幅减少 Token。
+
+**核心能力**:
+- **摘要生成**: 递归式摘要长文本。
+- **信息提取**: 从非结构化文本中提取关键 KV 对。
+- **语义压缩**: 使用更紧凑的表达重写冗长内容。
+
+**使用案例**:
+> **用户**: "把这篇 10 万字的论文总结一下，我只想保留核心论点和实验数据，作为后续对话的背景。"
+>
+> **Skill 响应**:
+> 1. 执行 `compress` 操作，使用递归摘要法提取关键信息。
+> 2. 将原始文本替换为结构化的高密度摘要（Token 减少 90%）。
+> 3. 确保后续问答仍能基于这些核心事实进行。
+
+---
+
+### 40. Context Degradation (上下文退化)
+
+**调用方式**: `@[context-degradation]` 或 `/context-degradation`
+
+**简介**:
+专门处理"长上下文性能下降"（Lost-in-the-Middle）问题。
+
+**核心能力**:
+- **退化诊断**: 检测模型是否开始出现幻觉或忽略指令。
+- **关键信息重置**: 在长对话中定期重申关键指令（System Prompt 强化）。
+- **上下文刷新**: 引导用户开启新会话以恢复智力。
+
+**使用案例**:
+> **用户**: "Agent 最近变得很笨，连我最开始定义的变量名都忘了。"
+>
+> **Skill 响应**:
+> 1. 诊断发现上下文长度已达 180k，且注意力分布不均。
+> 2. 建议执行"上下文刷新"：总结当前进度，生成一个新的 System Prompt。
+> 3. 引导用户开启新会话并注入该 Snapshot，恢复推理能力。
+
+---
+
+### 41. Multi-Agent Patterns (多 Agent 模式)
+
+**调用方式**: `@[multi-agent-patterns]` 或 `/multi-agent-patterns`
+
+**简介**:
+设计和实施高级的多 Agent 协作系统。
+
+**核心能力**:
+- **Supervisor 模式**: 一个主 Agent 协调多个从属 Agent。
+- **Swarm 模式**: 多个同级 Agent 自组织协作。
+- **Handoffs**: 定义 Agent 之间的上下文和任务交接协议。
+
+**使用案例**:
+> **用户**: "设计一个软件开发团队的 Agent 系统。"
+>
+> **Skill 响应**:
+> 设计包含 PM、Dev、QA 三个角色的协作流，定义谁负责分发任务（PM）和谁负责验证（QA）。
+
+---
+
+### 42. Hosted Agents (托管 Agent)
+
+**调用方式**: `@[hosted-agents]` 或 `/hosted-agents`
+
+**简介**:
+构建可以脱离当前对话框，在后台或服务器上长期运行的 Agent。
+
+**核心能力**:
+- **沙盒环境**: 在 Modal 或 Docker 中部署 Agent。
+- **持续运行**: 实现循环执行、定时任务的 Agent。
+- **API 封装**: 将 Agent 能力封装为 HTTP API。
+
+**使用案例**:
+> **用户**: "我需要一个专门监控 GitHub Issue 并自动回复的机器人，这需要 24 小时运行。"
+>
+> **Skill 响应**:
+> 1. 编写 Agent 逻辑（监听 webhook -> 分析 issue -> 评论）。
+> 2. 使用 Modal 或 Docker 将其打包。
+> 3. 部署到云端服务器，使其成为独立运行的 Service。
+
+---
+
+### 43. Tool Design (工具设计)
+
+**调用方式**: `@[tool-design]` 或 `/tool-design`
+
+**简介**:
+设计高质量 Agent 工具（Function Calling）的专家指南。
+
+**核心能力**:
+- **接口定义**: 编写清晰、无歧义的 JSON Schema。
+- **容错设计**: 设计健壮的错误处理和反馈机制。
+- **粒度控制**: 平衡工具的原子性和易用性。
+
+**使用案例**:
+> **用户**: "我要给 Agent 加一个查数据库的功能，怎么设计 Tool 最好？"
+>
+> **Skill 响应**:
+> 1. 警告：不要直接给 `execute_sql` 权限（太危险且由于幻觉容易出错）。
+> 2. 建议：设计语义化工具，如 `get_user_by_email(email)` 或 `search_orders(query)`。
+> 3. 提供对应的 JSON Schema 定义和 Pydantic 模型。
+
+---
+
+### 44. Project Development (项目开发)
+
+**调用方式**: `@[project-development]` 或 `/project-development`
+
+**简介**:
+LLM 原生应用的全流程开发指南。
+
+**核心能力**:
+- **任务匹配**: 评估任务是否适合 LLM + Agent 解决。
+- **技术选型**: 选择模型（Claude vs GPT vs Local）、数据库和框架。
+- **成本估算**: 预估 Token 消耗和延迟。
+
+**使用案例**:
+> **用户**: "我想用 LLM 做一个法律合同审查系统，从哪里开始？"
+>
+> **Skill 响应**:
+> 1. 第一步：Task-Fit 评估（确认法律条款审查在当前模型能力范围内）。
+> 2. 第二步：架构设计（RAG 检索法条 + GPT-4 审查 logic）。
+> 3. 第三步：PoC 原型验证计划。
+
+---
+
+### 45. Evaluation (基础评估)
+
+**调用方式**: `@[evaluation]` 或 `/evaluation`
+
+**简介**:
+建立 Agent 系统的基础评估体系。
+
+**核心能力**:
+- **测试集构建**: 生成 Golden Datasets。
+- **指标定义**: 定义准确率、召回率、幻觉率等指标。
+- **自动化运行**: 批量运行测试用例。
+
+**使用案例**:
+> **用户**: "我改了 Prompt 之后，怎么知道 Agent 的表现是变好了还是变差了？"
+>
+> **Skill 响应**:
+> 1. 创建包含 50 个典型用户问题及标准答案的 CSV 数据集。
+> 2. 定义评估指标（如准确率、JSON 格式正确率）。
+> 3. 运行 `evaluation` 脚本，对比修改前后的得分变化（+5% 还是 -10%）。
+
+---
+
+### 46. Advanced Evaluation (高级评估)
+
+**调用方式**: `@[advanced-evaluation]` 或 `/advanced-evaluation`
+
+**简介**:
+实施更深度的、基于模型的评估方法。
+
+**核心能力**:
+- **LLM-as-a-Judge**: 使用强模型（如 Claude 3.5 Sonnet）评估弱模型的输出。
+- **成对比较**: 模拟人类偏好测试（Elo 评分）。
+- **偏见分析**: 检测模型输出中的潜在偏见。
+
+**使用案例**:
+> **用户**: "我要评估生成的营销文案是否有创意，这很难用代码判断。"
+>
+> **Skill 响应**:
+> 1. 设置 LLM-as-a-Judge 管道，使用 Claude 3.5 Sonnet 作为评委。
+> 2. 向评委提供评价维度（创意性、逻辑性、流畅度）和评分标准（1-5分）。
+> 3. 让评委对小模型的输出进行打分和点评。
 
 
 

@@ -74,12 +74,31 @@ cp -r .agent/ /path/to/your/workspace/
 - **`@[verification-before-completion]`**: 在声明任务完成前运行验证命令，确保证据确凿
 - **`@[using-superpowers]`**: 引导用户发现和使用这些高级技能
 
+### 🧠 核心认知与架构 (Core Cognition & Architecture)
+这些技能构建了 Agent 的思维模型、记忆系统和上下文管理能力。
+- **`@[bdi-mental-states]`**: 模拟 Agent 的信念(Belief)、愿望(Desire)和意图(Intention)模型
+- **`@[memory-systems]`**: 构建基于知识图谱或向量的长期记忆与实体追踪系统
+- **`@[context-fundamentals]`**: 理解和调试上下文窗口、注意力机制等基础问题
+- **`@[context-optimization]`**: 优化上下文效率，通过 KV-cache 或分区降低 Token 成本
+- **`@[context-compression]`**: 实施上下文压缩与摘要，应对长窗口限制
+- **`@[context-degradation]`**: 诊断和修复"迷失中间"等上下文退化问题
+- **`@[filesystem-context]`**: 利用文件系统进行动态上下文卸载与管理
+
+### 📐 系统设计与评估 (System Design & Evaluation)
+这些技能专注于 AI 系统的架构设计、工具构建和质量评估。
+- **`@[project-development]`**: LLM 项目全生命周期设计，包括任务-模型匹配与管道架构
+- **`@[tool-design]`**: 设计高效、清晰的 Agent 工具接口与 MCP 协议
+- **`@[evaluation]`**: 建立多维度的 Agent 性能评估体系与质量门禁
+- **`@[advanced-evaluation]`**: 实施 LLM-as-a-Judge、成对比较等高阶评估方法
+
 ### 🧩 系统扩展 (System Extension)
 这些技能允许我扩展自身的能力边界。
 - **`@[mcp-builder]`**: 构建 MCP (Model Context Protocol) 服务器，连接外部工具和数据
 - **`@[skill-creator]`**: 创建新技能或更新现有技能，扩展我的知识库和工作流
 - **`@[writing-skills]`**: 辅助编写、编辑和验证技能文件的工具集
 - **`@[dispatching-parallel-agents]`**: 分发并行任务给多个 Agent 处理
+- **`@[multi-agent-patterns]`**: 设计 Supervisor、Swarm 等高级多 Agent 协作模式
+- **`@[hosted-agents]`**: 构建和部署沙盒化、持久运行的后台 Agent
 
 ## 📚 参考文档
 - [Anthropic Skills](https://github.com/anthropic/skills)
@@ -87,3 +106,4 @@ cp -r .agent/ /path/to/your/workspace/
 - [Superpowers](https://github.com/obra/superpowers)
 - [Planning with Files](https://github.com/OthmanAdi/planning-with-files)
 - [NotebookLM](https://github.com/PleasePrompto/notebooklm-skill)
+- [Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering)
