@@ -1,6 +1,6 @@
 # Antigravity Skills
 
-[中文](README.md) | [English](docs/README.en.md)
+[中文](README.md) | [English](README.en.md)
 
 通过模块化的 **Skills** 定义，赋予 Agent 在特定领域的专业能力（如全栈开发、复杂逻辑规划、多媒体处理等），让 Agent 能够像人类专家一样系统性地解决复杂问题。
 
